@@ -33,7 +33,7 @@ func main() {
 	)
 
 	service.Init()
-	client := pb.NewShippingService("shippy.service.consignment", service.Client())
+	client := pb.NewShippingService("shippy.consignment.service", service.Client())
 
 	file := defaultFilename
 	if len(os.Args) > 1 {
@@ -43,11 +43,11 @@ func main() {
 	if err != nil {
 		log.Fatalf("Could not parse file: %v", err)
 	}
-	r, err := client.CreateConsignment(context.Background(), consignment)
+	result, err := client.CreateConsignment(context.Background(), consignment)
 	if err != nil {
 		log.Fatalf("Could not greet: %v", err)
 	}
-	log.Printf("Created: %t", r.Created)
+	log.Println("Created: ", result)
 
 	allConsignments, err := client.GetConsignments(context.Background(), &pb.GetRequest{})
 	if err != nil {

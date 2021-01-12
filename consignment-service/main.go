@@ -28,6 +28,7 @@ func (repo *Repository) Create(consignment *pb.Consignment) (*pb.Consignment, er
 	updated := append(repo.consignments, consignment)
 	repo.consignments = updated
 	repo.mu.Unlock()
+	log.Println("create consignment: ", consignment)
 	return consignment, nil
 }
 
@@ -40,13 +41,16 @@ type consignmentService struct {
 }
 
 func (s *consignmentService) CreateConsignment(ctx context.Context, req *pb.Consignment, res *pb.Response) error {
-	res = &pb.Response{}
+
+	log.Println("CreateConsignment: ", req)
 	consignment, err := s.repo.Create(req)
 	if err != nil {
 		return err
 	}
 	res.Created = true
 	res.Consignment = consignment
+	log.Println("res is ", res)
+
 	return nil
 }
 
@@ -60,7 +64,7 @@ func main() {
 	repo := &Repository{}
 
 	service := micro.NewService(
-		micro.Name("shippy.service.consignment"),
+		micro.Name("shippy.consignment.service"),
 	)
 
 	service.Init()
