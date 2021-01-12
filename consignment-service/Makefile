@@ -4,4 +4,6 @@ gen:
 run:
 	docker run -p 50051:50051 \
 		-e MICRO_SERVICE_ADDRESS= :50051 \
-		shippy-service-consignment		
+		shippy-service-consignment
+build:
+	docker build -t shippy-service-consignment .		
