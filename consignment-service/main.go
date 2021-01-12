@@ -13,10 +13,7 @@ const (
 	port = ":50051"
 )
 
-type repository interface {
-	Create(*pb.Consignment) (*pb.Consignment, error)
-	GetAll() []*pb.Consignment
-}
+
 
 type Repository struct {
 	mu           sync.RWMutex
