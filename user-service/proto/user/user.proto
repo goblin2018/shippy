@@ -15,7 +15,7 @@ message User {
   string name = 2;
   string company = 3;
   string email = 4;
-  string pasword = 5;
+  string password = 5;
 }
 
 message Request {}

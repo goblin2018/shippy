@@ -60,7 +60,13 @@ func UnmarshalUser(user *User) *pb.User {
 		Pasword: user.Password,
 	}
 }
-
+func UnmarshalUserCollection(users []*User) []*pb.User {
+	u := make([]*pb.User, len(users))
+	for _, val := range users {
+		u = append(u, UnmarshalUser(val))
+	}
+	return u
+}
 func (r *PostgresRepository) GetAll(ctx context.Context) ([]*User, error) {
 	users := make([]*User, 0)
 	if err := r.db.GetContext(ctx, users, "select * from users"); err != nil {
