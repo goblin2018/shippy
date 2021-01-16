@@ -47,17 +47,17 @@ func MarshalUser(user *pb.User) *User {
 		Name:     user.Name,
 		Email:    user.Email,
 		Company:  user.Company,
-		Password: user.Pasword,
+		Password: user.Password,
 	}
 }
 
 func UnmarshalUser(user *User) *pb.User {
 	return &pb.User{
-		Id:      user.ID,
-		Name:    user.Name,
-		Email:   user.Email,
-		Company: user.Company,
-		Pasword: user.Password,
+		Id:       user.ID,
+		Name:     user.Name,
+		Email:    user.Email,
+		Company:  user.Company,
+		Password: user.Password,
 	}
 }
 func UnmarshalUserCollection(users []*User) []*pb.User {
