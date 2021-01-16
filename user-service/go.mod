@@ -13,3 +13,5 @@ require (
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.25.0
 )
+
+replace google.golang.org/grpc => google.golang.org/grpc v1.26.0
