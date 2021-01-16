@@ -6,6 +6,7 @@ require (
 	github.com/Microsoft/go-winio v0.4.16 // indirect
 	github.com/coreos/etcd v3.3.25+incompatible // indirect
 	github.com/coreos/go-systemd v0.0.0-20191104093116-d3cd4ed1dbcf // indirect
+	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-git/go-git/v5 v5.2.0 // indirect
 	github.com/goblin2018/shippy/consignment-service v0.0.0-20210111150406-71541590db57

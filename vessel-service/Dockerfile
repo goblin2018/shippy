@@ -1,6 +1,6 @@
 FROM golang:alpine as builder
 
-RUN apk udpate && apk upgrade && \
+RUN apk update && apk upgrade && \
     apk add --no-cache git
 
 RUN mkdir /app

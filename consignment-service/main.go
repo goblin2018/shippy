@@ -6,6 +6,7 @@ import (
 	"os"
 
 	pb "github.com/goblin2018/shippy/consignment-service/proto/consignment"
+	vesselPb "github.com/goblin2018/shippy/vessel-service/proto/vessel"
 	"github.com/micro/go-micro/v2"
 )
 
@@ -37,7 +38,9 @@ func main() {
 	vesselCollection := client.Database("shippy").Collection("vessels")
 	repository := &MongoRepository{vesselCollection}
 
-	h := &handler{repository}
+	vesselCient := vesselPb.NewVesselService("shippy.service.vessel")
+
+	h := &handler{repository, vesselCient}
 
 	if err := pb.RegisterShippingServiceHandler(service.Server(), h); err != nil {
 		log.Panic(err)
