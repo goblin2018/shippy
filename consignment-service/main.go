@@ -38,7 +38,7 @@ func main() {
 	vesselCollection := client.Database("shippy").Collection("vessels")
 	repository := &MongoRepository{vesselCollection}
 
-	vesselCient := vesselPb.NewVesselService("shippy.service.vessel")
+	vesselCient := vesselPb.NewVesselService("shippy.service.vessel", service.Client())
 
 	h := &handler{repository, vesselCient}
 
