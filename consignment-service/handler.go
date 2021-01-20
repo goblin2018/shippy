@@ -15,7 +15,14 @@ type handler struct {
 }
 
 func (s *handler) CreateConsignment(ctx context.Context, req *pb.Consignment, res *pb.Response) error {
-
+	s.vesselClient.Create(ctx, &vesselPb.Vessel{
+		Id:        "ok",
+		Capacity:  9999999,
+		MaxWeight: 9999999,
+		Name:      "good",
+		Avaiable:  true,
+		OwnerId:   "ok2",
+	})
 	vesselRes, err := s.vesselClient.FindAvailable(ctx, &vesselPb.Specification{
 		MaxWeight: req.Weight,
 		Capacity:  int32(len(req.Containers)),

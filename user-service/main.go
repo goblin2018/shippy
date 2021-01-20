@@ -37,7 +37,7 @@ func main() {
 	tokenService := &TokenService{repo}
 
 	service := micro.NewService(
-		micro.Name("shppy.user.service"),
+		micro.Name("shippy.user.service"),
 		micro.Version("latest"),
 	)
 

@@ -73,11 +73,10 @@ func (repo *MongoRepository) FindAvailable(ctx context.Context, spec *Specificat
 		bson.D{{
 			"$lte",
 			spec.Capacity,
-		},
-			{
-				"$lte",
-				spec.MaxWeight,
-			}},
+		}, {
+			"$lte",
+			spec.MaxWeight,
+		}},
 	}}
 
 	vessel := &Vessel{}

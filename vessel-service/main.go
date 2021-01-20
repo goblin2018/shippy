@@ -35,6 +35,8 @@ func main() {
 	vesselCollection := client.Database("shippy").Collection("vessels")
 	repository := &MongoRepository{vesselCollection}
 
+	repository.Create(context.Background(), &Vessel{})
+
 	h := &handler{repository}
 
 	if err := pb.RegisterVesselServiceHandler(service.Server(), h); err != nil {
